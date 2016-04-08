@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="SpringFormTest1:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="SpringFormTest1.war">
+      <element id="artifact" artifact-name="SpringFormTest1:war exploded" />
+    </root>
+  </artifact>
+</component>
