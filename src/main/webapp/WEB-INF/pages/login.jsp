@@ -14,9 +14,11 @@
     
     <form:label path="username">Name:</form:label>
     <form:input path="username"/>
+    <form:errors path="username"/>
 
     <form:label path="passwd">Password:</form:label>
     <form:password path="passwd"/>
+    <form:errors path="passwd" />
 
     <fomr:label path="admin">Admin</fomr:label>
     <form:checkbox path="admin"/>

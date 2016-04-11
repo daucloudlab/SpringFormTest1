@@ -4,10 +4,14 @@ import kz.tezdet.lessons.springmvc.models.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.validation.Valid;
+import java.util.Map;
 
 
 @Controller
@@ -23,11 +27,15 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/check-user", method = RequestMethod.POST)
-    public ModelAndView check_user(@ModelAttribute("user") User user){
-        ModelAndView model = new ModelAndView() ;
-        model.setViewName("main");
-        model.addObject("user",user) ;
-        return model ;
+    public String check_user(@Valid @ModelAttribute("user") User user,
+                                   BindingResult result, Map<String, Object> model){
+        if (result.hasErrors())
+            return "login" ;
+        else{
+            model.put("user", user) ;
+            return "main" ;
+        }
+
     }
 
     @RequestMapping(value = "/failed", method = RequestMethod.GET)

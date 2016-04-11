@@ -1,8 +1,13 @@
 package kz.tezdet.lessons.springmvc.models;
 
 
+import javax.validation.constraints.Size;
+
 public class User {
+    @Size(min=6, message = "Қолданушының есімі 6 символдан кем болмауы тиіс")
     private String username ;
+    @Size(min=5, max=6, message =
+            "Пароль 5 символдан кем емес және 15 символдан артық болмауы тиіс")
     private String passwd ;
     private boolean admin ;
 
